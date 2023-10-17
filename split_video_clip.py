@@ -33,7 +33,7 @@ def split_video_chunks_with_frame_extraction(video_path, start_chunk, num_chunks
     start_time = start_chunk * avg_duration
 
     # List to store file names of the chunks and the last frame images
-    output_files = []
+    output_files_mp4 = []
     output_images = []
 
     for i in range(num_chunks):
@@ -59,7 +59,7 @@ def split_video_chunks_with_frame_extraction(video_path, start_chunk, num_chunks
         chunk.save_frame(image_path, t=last_frame_time)
 
         # Add file and image paths to the lists
-        output_files.append(output_file)
+        output_files_mp4.append(output_file)
         output_images.append(image_path)
 
         # Update start time for next chunk
@@ -69,7 +69,7 @@ def split_video_chunks_with_frame_extraction(video_path, start_chunk, num_chunks
         if end_time == total_duration:
             break
 
-    return output_files, output_images
+    return output_files_mp4, output_images
 
 
 # Split the next 5 chunks and extract the last frame for each chunk
